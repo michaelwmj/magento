@@ -7,7 +7,7 @@ RUN apt-get update \
         &&apache2 -v \
         &&a2enmod rewrite \
         &&more /etc/apache2/sites-available/000-default.conf \
-        &&RUN echo $'All of your\n\
+        &&echo $'All of your\n\
 multiline that you ever wanted\n\
 into a dockerfile\n'\
 >> /etc/example.conf \
