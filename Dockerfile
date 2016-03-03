@@ -10,7 +10,7 @@ RUN apt-get update \
 <Directory "/var/www/html">\n\
         AllowOverride  <value from Apache site>\n\
 </Directory>\n\
-EOF\n\
+EOF\
         &&service apache2 restart \
 #        &&apt-get -y update \
 # Upate source file and install php5 and required extensions, verify , update ini file and restart apache service.
