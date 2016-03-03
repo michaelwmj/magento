@@ -1,6 +1,7 @@
 # Build magento 2 from ubuntu base
 FROM ubuntu:14.04.4
 
+
 # Upate source file and install apache2, verify and start service.
 RUN apt-get update \
         &&apt-get -y install apache2 \
