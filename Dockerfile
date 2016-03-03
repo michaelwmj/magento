@@ -19,3 +19,4 @@ EOF \
         &&service apache2 restart \
 CMD ["service apache2 start"]
 EXPOSE 80
+###pull test only
