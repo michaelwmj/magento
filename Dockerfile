@@ -6,7 +6,7 @@ RUN apt-get update \
         &&apt-get -y install apache2 \
         &&apache2 -v \
         &&a2enmod rewrite \
-        &&sudo tee -a //etc/apache2/sites-available/000-default.conf <<'EOF'\n\
+        &&DEBIAN_FRONTEND=noninteractive sudo tee -a //etc/apache2/sites-available/000-default.conf <<'EOF'\n\
 <Directory "/var/www/html">\n\
         AllowOverride  <value from Apache site>\n\
 </Directory>\n\
