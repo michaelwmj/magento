@@ -6,13 +6,13 @@ RUN apt-get update \
         &&apt-get -y install apache2 \
         &&apache2 -v \
         &&a2enmod rewrite \
+        &&service apache2 restart \
         &&cat <<EOF >> /etc/apache2/sites-available/000-default.conf\n\
 <Directory "/var/www/html">\n\
         AllowOverride  <value from Apache site>\n\
 </Directory>\n\
 EOF\n\
 #Solving 403 Forbidden errors for Apache 2.4
-        &&service apache2 restart \
 #        &&apt-get -y update \
 # Upate source file and install php5 and required extensions, verify , update ini file and restart apache service.
         &&apt-get install software-properties-common -y \
