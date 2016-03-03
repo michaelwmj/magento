@@ -6,11 +6,11 @@ RUN apt-get update \
         &&apt-get -y install apache2 \
         &&apache2 -v \
         &&a2enmod rewrite \
-        &&DEBIAN_FRONTEND=noninteractive sudo tee -a //etc/apache2/sites-available/000-default.conf <<'EOF'\n\
-<Directory "/var/www/html">\n\
-        AllowOverride  <value from Apache site>\n\
-</Directory>\n\
-EOF\
+#        &&DEBIAN_FRONTEND=noninteractive sudo tee -a //etc/apache2/sites-available/000-default.conf <<'EOF'\n\
+#<Directory "/var/www/html">\n\
+#        AllowOverride  <value from Apache site>\n\
+#</Directory>\n\
+#EOF\
 #Solving 403 Forbidden errors for Apache 2.4
         &&service apache2 restart \
 #        &&apt-get -y update \
