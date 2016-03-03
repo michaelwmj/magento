@@ -8,7 +8,7 @@ RUN apt-get update \
         &&service apache2 restart \
         &&apt-get -y update \
 # Upate source file and install php5 and required extensions, verify , update ini file and restart apache service.
-        &&add-apt-repository -y ppa:ondrej/php5-5.6 \
+        &&add-apt-repository -y -m ppa:ondrej/php5-5.6 \
         &&apt-get -y update \
         &&apt-get -y install php5 php5-common php5-mcrypt php5-curl php5-cli php5-mysql php5-gd php5-intl php5-xsl \ 
 #php5-bcmath not find and only required for enterprise edition
