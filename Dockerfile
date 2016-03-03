@@ -7,11 +7,11 @@ RUN apt-get update \
         &&apache2 -v \
         &&a2enmod rewrite \
         &&more /etc/apache2/sites-available/000-default.conf \
-        &&cat <<EOF >> /etc/apache2/sites-available/000-default.conf \n \
-<Directory "/var/www/html"> \n \
-        AllowOverride  <value from Apache site> \n \
-</Directory> \n \
-EOF \n \
+        &&cat <<EOF >> /etc/apache2/sites-available/000-default.conf \n
+<Directory "/var/www/html"> \n
+        AllowOverride  <value from Apache site> \n
+</Directory> \n
+EOF \
         &&service apache2 restart \
 #Solving 403 Forbidden errors for Apache 2.4
 #        &&apt-get -y update \
