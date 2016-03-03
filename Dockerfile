@@ -6,11 +6,11 @@ RUN apt-get update \
         &&apache2 -v \
         &&a2enmod rewrite \
         &&service apache2 restart \
-        &&apt-get -y update \
+#        &&apt-get -y update \
 # Upate source file and install php5 and required extensions, verify , update ini file and restart apache service.
         apt-get install software-properties-common -y \
         &&add-apt-repository -y -m ppa:ondrej/php5-5.6 \
-        &&apt-get -y update \
+#        &&apt-get -y update \
         &&apt-get -y install php5 php5-common php5-mcrypt php5-curl php5-cli php5-mysql php5-gd php5-intl php5-xsl \ 
 #php5-bcmath not find and only required for enterprise edition
         &&php -v \
