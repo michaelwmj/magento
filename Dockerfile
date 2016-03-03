@@ -7,16 +7,11 @@ RUN apt-get update \
         &&apt-get -y install apache2 \
         &&apache2 -v \
         &&a2enmod rewrite \
-        &&echo $'All of your\n\
-multiline that you ever wanted\n\
-into a dockerfile\n'\
->> /etc/example.conf \
-        &&cat <<EOF >> /etc/apache2/sites-available/000-default.conf\n\
-<Directory "/var/www/html">\n\
-        AllowOverride  <value from Apache site>\n\
-</Directory>\n\
-EOF\n\
-        &&service apache2 restart \
+        
+# config to enable .htaccess 
+ADD apache_default /etc/apache2/sites-available/000-default.conf
+RUn service apache2 restart \
+
 #Solving 403 Forbidden errors for Apache 2.4
 #        &&apt-get -y update \
 # Upate source file and install php5 and required extensions, verify , update ini file and restart apache service.
