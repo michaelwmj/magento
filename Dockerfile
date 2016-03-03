@@ -3,7 +3,7 @@ RUN apt-get update \
         &&apt-get -y install apache2 \
         &&apache2 -v \
         &&a2enmod rewrite \
-        &&sudo tee -a /tmp/file <<EOF \
+        &&sudo tee -a /tmp/file <<'EOF' \
 <Directory "/var/www/html"> \
         AllowOverride  <value from Apache site> \
 </Directory> \
