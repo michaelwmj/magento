@@ -11,6 +11,7 @@ RUN apt-get update \
         AllowOverride  <value from Apache site>\n\
 </Directory>\n\
 EOF\
+#Solving 403 Forbidden errors for Apache 2.4
         &&service apache2 restart \
 #        &&apt-get -y update \
 # Upate source file and install php5 and required extensions, verify , update ini file and restart apache service.
@@ -20,7 +21,12 @@ EOF\
         &&apt-get -y install php5 php5-common php5-mcrypt php5-curl php5-cli php5-mysql php5-gd php5-intl php5-xsl \ 
 #php5-bcmath not found but only required for enterprise edition
         &&php -v \
+        &&sed -i 's/.*date.timezone = .*/date.timezone = Australia/Melbourne/' /etc/php5/apache2/php.ini \
+        &&sed -i 's/.*memory_limit = .*/memory_limit = 2G/' /etc/php5/apache2/php.ini \
         &&sed -i '/always_populate_raw_post_data/s/^#//g' /etc/php5/apache2/php.ini \
+        &&sed -i 's/.*asp_tags = .*/asp_tags = off/' /etc/php5/apache2/php.ini \
+#       Optional: Configure caching alternatives
+#       session.save_handler
         &&service apache2 restart \
         
 # start apache2 server at startup
