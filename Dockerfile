@@ -6,14 +6,13 @@ RUN apt-get update \
         &&apt-get -y install apache2 \
         &&apache2 -v \
         &&a2enmod rewrite \
-        &&sudo tee -a /tmp/file <<'EOF'\n\
+        &&sudo tee -a //etc/apache2/sites-available/000-default.conf <<'EOF'\n\
 <Directory "/var/www/html">\n\
         AllowOverride  <value from Apache site>\n\
 </Directory>\n\
 EOF \
         &&service apache2 restart \
 #        &&apt-get -y update \
-
 # Upate source file and install php5 and required extensions, verify , update ini file and restart apache service.
         &&apt-get install software-properties-common -y \
         &&add-apt-repository -y -m ppa:ondrej/php5-5.6 \
