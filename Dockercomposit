@@ -1,5 +1,6 @@
-docker run -itd --name 9magentodb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_USER=mike -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=magento mysql bash
-docker run -itd -p 80:80 --link 9magentodb:db magento2:3.1 bash
+docker run --name cmagentodb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=magento -d mysql
+#docker run -itd --name amagentodb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_USER=mike -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=magento mysql bash
+docker run -itd -p 80:80 --link cmagentodb:db magento2:3.1 bash
 
 
 #remove all docker containers 
@@ -9,7 +10,7 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -q)
 
 #connect to mysql cli
-$ docker run -it --link some-mysql:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'
+docker run -it --link bmagentodb:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'
 
 $ docker exec -it some-mysql bash
 
