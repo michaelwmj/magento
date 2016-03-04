@@ -28,7 +28,6 @@ RUN apt-get update \
 #magento installation utilities
         &&apt-get -y install openssh-sftp-server
         &&apt-get -y install unzip
-        
 # start apache2 server at startup
 CMD ["service apache2 start"]
 
