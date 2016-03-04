@@ -6,5 +6,6 @@ get magento
 mkdir magento2ce
 cp Magento-CE-2.0.2+sample_data-2016-01-28-02-39-03.zip magento2ce/
 cd /var/www/html/magento2ce
+unzip Magento-CE-2.0.2+sample_data-2016-01-28-02-39-03.zip
 chown -R :www-data .
 find . -type d -exec chmod 777 {} \; && find . -type f -exec chmod 777 {} \; && chmod u+x bin/magento
