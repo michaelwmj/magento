@@ -1,0 +1,16 @@
+docker run -td ubuntu:14.04.4
+docker exec -it 7c49c3a5941e bash
+apt-get -y install openssh-sftp-server
+apt-get install unzip
+sftp mike@172.17.0.1
+cp magento file
+
+
+docker commit -p wumingjun/ubuntu:14.04.4-1
+
+docker login
+docker push wumingjun/ubuntu:14.04.4-1
+
+
+
+
