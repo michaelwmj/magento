@@ -24,8 +24,10 @@ RUN apt-get update \
 #       Optional: Configure caching alternatives
 #       session.save_handler
         &&service apache2 restart \
-        &&apt-get install openssh-sftp-server
-        &&apt-get install unzip
+        
+#magento installation utilities
+        &&apt-get -y install openssh-sftp-server
+        &&apt-get -y install unzip
         
 # start apache2 server at startup
 CMD ["service apache2 start"]
