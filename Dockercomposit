@@ -1,0 +1,2 @@
+docker run -itd --name 2magentodb -e USER=mike -e PASS=password -e MYSQL_DATABASE=magento2 mysql bash
+docker run -itd -p 8080:80 --link 2magentodb:db magento2:2.0 service apache2 start
