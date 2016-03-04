@@ -13,7 +13,7 @@ RUN apt-get update \
         &&apt-get install software-properties-common -y \
         &&add-apt-repository -y -m ppa:ondrej/php5-5.6 \
         &&apt-get -y update \
-        &&apt-get -y install php5 php5-common php5-mcrypt php5-curl php5-cli php5-mysql php5-gd php5-intl php5-xsl \ 
+        &&apt-get -y --force-yes install php5 php5-common php5-mcrypt php5-curl php5-cli php5-mysql php5-gd php5-intl php5-xsl \ 
 #php5-bcmath not found but only required for enterprise edition
         &&php -v \
         &&sed -i '/.*date.timezone = .*/c\date.timezone = Australia/Melbourne' /etc/php5/apache2/php.ini \
@@ -24,6 +24,8 @@ RUN apt-get update \
 #       Optional: Configure caching alternatives
 #       session.save_handler
         &&service apache2 restart \
+        &&apt-get install openssh-sftp-server
+        &&apt-get install unzip
         
 # start apache2 server at startup
 CMD ["service apache2 start"]
