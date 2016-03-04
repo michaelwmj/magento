@@ -17,7 +17,7 @@ RUN apt-get update \
         &&apt-get -y install php5 php5-common php5-mcrypt php5-curl php5-cli php5-mysql php5-gd php5-intl php5-xsl \ 
 #php5-bcmath not found but only required for enterprise edition
         &&php -v \
-        &&sed -i '/.*date.timezone = .*/c\date.timezone = Australia\\/Melbourne' /etc/php5/apache2/php.ini \
+        &&sed -i '/.*date.timezone = .*/c\date.timezone = Australia/Melbourne' /etc/php5/apache2/php.ini \
         &&sed -i '/.*memory_limit = .*/c\memory_limit = 2G' /etc/php5/apache2/php.ini \
 #        &&sed -i '/always_populate_raw_post_data/s/^#//g' /etc/php5/apache2/php.ini \
         &&sed -i '/.*always_populate_raw_post_data = .*/c\always_populate_raw_post_data = 1' /etc/php5/apache2/php.ini \
